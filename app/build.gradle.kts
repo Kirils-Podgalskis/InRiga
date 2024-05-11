@@ -41,7 +41,12 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.annotation)
+    implementation("org.projectlombok:lombok:1.18.32")
+    implementation("org.projectlombok:lombok:1.18.32")
+    implementation("org.projectlombok:lombok:1.18.30")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    compileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
 }

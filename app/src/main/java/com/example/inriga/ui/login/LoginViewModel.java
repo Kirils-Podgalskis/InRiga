@@ -11,22 +11,20 @@ import com.example.inriga.data.Result;
 import com.example.inriga.data.model.LoggedInUser;
 import com.example.inriga.R;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+
+@Getter
 public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+
+    @Getter(AccessLevel.NONE)
     private LoginRepository loginRepository;
 
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
-    }
-
-    LiveData<LoginFormState> getLoginFormState() {
-        return loginFormState;
-    }
-
-    LiveData<LoginResult> getLoginResult() {
-        return loginResult;
     }
 
     public void login(String username, String password) {
