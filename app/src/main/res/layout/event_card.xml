@@ -3,66 +3,77 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="105dp">
-
+    android:layout_height="130dp">
 
     <TextView
+        android:id="@+id/eventName"
         android:layout_width="200dp"
-        android:id="@+id/examName"
+        android:layout_height="wrap_content"
+        android:text="First event"
         android:textSize="16sp"
-        android:layout_marginStart="20dp"
-        android:text="First Exam"
         android:textColor="@color/black"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:maxLines="1"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content"/>
-
-    <ImageView
-        android:id="@+id/examPic"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/examName"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        app:tint="#808080" />
+        android:layout_marginTop="15dp"/>
 
     <TextView
-        android:id="@+id/examDate"
-        android:layout_toEndOf="@+id/examPic"
-        android:layout_width="wrap_content"
+        android:id="@+id/eventDescription"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/examName"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:text="May 23, 2015"
-        android:textSize="16sp"/>
-
-    <ImageView
-        android:id="@+id/examPic2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/examDate"
+        android:text="This is a description"
+        android:textSize="16sp"
+        android:textColor="@color/black"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        app:tint="#808080"
-    />
+        android:layout_below="@+id/eventName"
+        android:layout_marginEnd="20dp"
+        android:maxLines="1"
+        android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/examMessage"
-        android:layout_toEndOf="@+id/examPic2"
+    <LinearLayout
+        android:id="@+id/date_time_location_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/examDate"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:text="Best Of Luck"
-        android:textSize="16sp"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/eventDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp">
 
+        <TextView
+            android:id="@+id/eventDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May 23, 2015"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/separator1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" | "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/eventTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:15"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/separator2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" | "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/eventLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textSize="16sp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/border2"
@@ -72,6 +83,4 @@
         android:layout_marginEnd="15dp"
         android:layout_alignParentBottom="true"
         android:background="#808080"/>
-
-
 </RelativeLayout>
