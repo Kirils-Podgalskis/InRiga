@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+<androidx.cardview.widget.CardView
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+    app:cardCornerRadius="5dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="130dp">
 
@@ -9,71 +24,29 @@
         android:id="@+id/eventName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="First event"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="2dp"
         android:maxLines="1"
-        android:layout_marginTop="15dp"/>
+        android:text="First event"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/eventDescription"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="This is a description"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="20dp"
         android:layout_below="@+id/eventName"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
         android:maxLines="1"
-        android:layout_marginTop="10dp"/>
+        android:text="This is a description"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
-    <LinearLayout
-        android:id="@+id/date_time_location_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/eventDescription"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp">
-
-        <TextView
-            android:id="@+id/eventDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="May 23, 2015"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/separator1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" | "
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/eventTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:15"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/separator2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" | "
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/eventLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello"
-            android:textSize="16sp"/>
-    </LinearLayout>
 
     <TextView
         android:id="@+id/border2"
@@ -81,6 +54,76 @@
         android:layout_height="1dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_alignParentBottom="true"
-        android:background="#808080"/>
-</RelativeLayout>
+        android:background="#808080"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eventDate"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription"
+        app:srcCompat="@mipmap/img" />
+
+    <TextView
+        android:id="@+id/eventDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="May 23, 2015"
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <TextView
+        android:id="@+id/eventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="10:15"
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/separator1"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <TextView
+        android:id="@+id/separator2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=" | "
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/eventTime"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <TextView
+        android:id="@+id/eventLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Hello"
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/separator2"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <TextView
+        android:id="@+id/separator1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=" | "
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/eventDate"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
