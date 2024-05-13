@@ -7,19 +7,6 @@
     android:background="@color/bg"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@color/regular_primary"
-        android:text="InRiga"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventsRecyclerView"
