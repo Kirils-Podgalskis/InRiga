@@ -58,23 +58,51 @@ app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/eventDate"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDescription"
-        app:srcCompat="@mipmap/img" />
+        app:srcCompat="@mipmap/date" />
 
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="24dp"
         android:text="May 23, 2015"
+        android:textColor="#006A6A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDate"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+    <ImageView
+        android:id="@+id/imageViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/separator1"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription"
+        app:srcCompat="@mipmap/time" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/separator2"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescription"
+        app:srcCompat="@mipmap/euro" />
+
+    <TextView
+        android:id="@+id/eventLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Hello"
         android:textColor="#006A6A"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -88,7 +116,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:text="10:15"
         android:textColor="#006A6A"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/separator1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTime"
         app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
 
     <TextView
@@ -100,17 +128,6 @@ app:layout_constraintTop_toTopOf="parent"
         android:textColor="#006A6A"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/eventTime"
-        app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
-
-    <TextView
-        android:id="@+id/eventLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Hello"
-        android:textColor="#006A6A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/separator2"
         app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
 
     <TextView
