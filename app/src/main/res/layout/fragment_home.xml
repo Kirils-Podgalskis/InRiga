@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFF8F8"
+    android:background="@color/bg"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="#64A5A1"
+        android:background="@color/regular_primary"
         android:text="InRiga"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
