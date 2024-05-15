@@ -49,4 +49,9 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     compileOnly("org.projectlombok:lombok:1.18.32")
     annotationProcessor("org.projectlombok:lombok:1.18.32")
+    implementation ("androidx.fragment:fragment-ktx:1.3.6")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation ("com.google.android.material:material:1.3.0")
+
 }
