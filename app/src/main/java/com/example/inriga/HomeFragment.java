@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
 
     private void dataInitialize() {
         eventsList = new ArrayList<>();
-        eventsList.add(new EventData("Hokejs", "Latvija vs Kanāda", "01.02.2024", "18:00", "Riga"));
+        eventsList.add(new EventData("Hokejs", "Latvija vs Kanāda lorem ipsum aaaaaaaaaaaaaaaaaaaaaaaaaaa", "01.02.2024", "18:00", "Riga"));
         eventsList.add(new EventData("Hokejs", "Latvija vs Kanāda", "01.02.2024", "18:00", "Riga"));
         eventsList.add(new EventData("Hokejs", "Latvija vs Kanāda", "01.02.2024", "18:00", "Riga"));
         eventsList.add(new EventData("Hokejs", "Latvija vs Kanāda", "01.02.2024", "18:00", "Riga"));
