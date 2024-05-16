@@ -12,51 +12,42 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
-    Context context;
-    ArrayList<EventData> eventsList;
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder> {
+    private List<String> dataList;
 
-    public EventAdapter(Context context, ArrayList<EventData> eventsList) {
-        this.context = context;
-        this.eventsList = eventsList;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.event_card, parent, false);
-        return new ViewHolder(v);
+    public EventAdapter(List<String> dataList) {
+        this.dataList = dataList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
-        EventData event = eventsList.get(position);
-        holder.eventName.setText(event.name);
-        holder.eventDescription.setText(event.description);
-        holder.eventDate.setText(event.date);
-        holder.eventTime.setText(event.time);
-        holder.eventLocation.setText(event.location);
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_card, parent, false);
+        return new MyViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.textView.setText(dataList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return eventsList.size();
+        return dataList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView eventName;
-        TextView eventDescription;
-        TextView eventDate;
-        TextView eventTime;
-        TextView eventLocation;
-        public ViewHolder(@NonNull View itemView) {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView textView;
+
+        MyViewHolder(View itemView) {
             super(itemView);
-            eventName = itemView.findViewById(R.id.eventName);
-            eventDescription = itemView.findViewById(R.id.eventDescription);
-            eventDate = itemView.findViewById(R.id.eventDate);
-            eventTime = itemView.findViewById(R.id.eventTime);
-            eventLocation = itemView.findViewById(R.id.eventLocation);
+            textView = itemView.findViewById(R.id.textView);
         }
     }
 }

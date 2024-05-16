@@ -1,57 +1,50 @@
 package com.example.inriga;
 
+import static com.example.inriga.R.id.navigation_home;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+
+import com.example.inriga.ui.dashboard.DashboardFragment;
+import com.example.inriga.ui.home.HomeFragment;
+import com.example.inriga.ui.login.AccountFragment;
+import com.example.inriga.ui.notifications.NotificationsFragment;
+import com.example.inriga.ui.login.AccountFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.inriga.databinding.ActivityMainBinding;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            if (item.getItemId() == R.id.navigation_home) {
+                selectedFragment = new HomeFragment();
+            } else if (item.getItemId() == R.id.navigation_dashboard) {
+                selectedFragment = new DashboardFragment();
+            } else if (item.getItemId() == R.id.navigation_notifications) {
+                selectedFragment = new NotificationsFragment();
+            } else if (item.getItemId() == R.id.navigation_account) {
+                selectedFragment = new AccountFragment();
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    selectedFragment).commit();
+            return true;
+        });
 
-        setupNavigation();
-        replaceFragment(new HomeFragment());
-    }
-
-    private void setupNavigation() {
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-
-        try {
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-            NavigationUI.setupWithNavController(navView, navController);
-            Log.d(TAG, "NavController setup successfully");
-        } catch (Exception e) {
-            Log.e(TAG, "Error setting up NavController", e);
-        }
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment_activity_main, fragment);
-        fragmentTransaction.commit();
+        // Set the default fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
     }
 }
 

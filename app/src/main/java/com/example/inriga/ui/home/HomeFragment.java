@@ -9,29 +9,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.inriga.EventAdapter;
+import com.example.inriga.R;
 import com.example.inriga.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-//        final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
-    }
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private List<String> dataList;
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = view.findViewById(R.id.eventsRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dataList = new ArrayList<>();
+        // Populate dataList with some data
+        for (int i = 1; i <= 20; i++) {
+            dataList.add("Item " + i);
+        }
+        adapter = new EventAdapter(dataList);
+        recyclerView.setAdapter(adapter);
+        return view;
     }
 }
