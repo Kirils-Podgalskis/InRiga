@@ -1,2 +1,2 @@
 # InRiga Lietotnes PoC 
-tikai Android 11+ vidē
+pilnais atbalsts tikai Android 14+ vidē
